@@ -1,7 +1,6 @@
 package mieszko.project;
 
 import mieszko.events.*;
-import mieszko.services.Condition;
 import mieszko.services.GameDBManager;
 import mieszko.services.PersonDBManager;
 import mieszko.services.PersonGameDBManager;
@@ -143,51 +142,9 @@ public class Main {
 		{
 			System.out.println("Name: " + game.getName() + "\tGameType: " + game.getGameType() + "\tReleasedYear: " + game.getReleaseYear() + "\tPrice: " + game.getPrice());
 		}
-		
-		
-		System.out.println("**********----------**********");
-		System.out.println("Wszystkie gry powyzej 90 zł");
-		dbGame.printGameWithCondition(dbGame.getAllGames(), new Condition() 
-			{
-				@Override
-				public boolean getCondition(Game game) {
-						if (game.getPrice() > 90)
-							return true;
-					return false;
-				}
-			}
-		);
-		
-		System.out.println("**********----------**********");
-		System.out.println("Wszystkie gry powyzej 2008 roku");
-		dbGame.printGameWithCondition(dbGame.getAllGames(), new Condition() 
-			{
-				@Override
-				public boolean getCondition(Game game) {
-						if (game.getReleaseYear() > 2008)
-							return true;
-					return false;
-				}
-			}
-		);
-		
-		System.out.println("**********----------**********");
-		System.out.println("Wszystkie gry Andrzeja Mistrza powyzej 20 zł");
-		dbGame.printGameWithCondition(dbPersonGame.getPersonGame(dbPerson.findPersonByName("Andrzej Mistrz")), new Condition() 
-			{
-				@Override
-				public boolean getCondition(Game game) {
-						if (game.getPrice() > 20)
-							return true;
-					return false;
-				}
-			}
-		);
-		
-		//-----
-		dbPersonGame.deleteAllPersonGame();
-		dbGame.deleteAllGame();
-		dbPerson.deleteAllPerson();
 	}
-
 }
+		
+		
+
+		

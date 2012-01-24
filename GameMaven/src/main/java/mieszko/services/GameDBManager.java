@@ -191,16 +191,7 @@ public class GameDBManager {
 		}
 	}
 	
-	public void printGameWithCondition(List<Game> listGame,Condition condition)
-	{
-		for (Game game : listGame)
-		{
-			if (condition.getCondition(game))
-			{
-				System.out.println("Name: " + game.getName() + "\tGameType: " + game.getGameType() + "\tReleasedYear: " + game.getReleaseYear() + "\tPrice: " + game.getPrice());
-			}
-		}
-	}
+
 	
 
 
