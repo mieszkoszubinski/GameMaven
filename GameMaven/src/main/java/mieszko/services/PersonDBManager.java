@@ -25,7 +25,7 @@ public class PersonDBManager {
 			Properties props = new Properties();
 			
 			try {
-				props.load(ClassLoader.getSystemResourceAsStream("szwedi/jdbs.properties"));
+				props.load(ClassLoader.getSystemResourceAsStream("mieszko/jdbs.properties"));
 			} catch (IOException e) {
 				e.printStackTrace();
 			}

@@ -2,20 +2,19 @@ package mieszko.test;
 
 import static org.junit.Assert.*;
 
-import mieszko.project.GameType;
-import mieszko.project.Person;
-import mieszko.project.PriceException;
-
 import org.junit.After;
 import org.junit.AfterClass;
 import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.Test;
 
+import mieszko.project.GameType;
+import mieszko.project.Person;
+import mieszko.project.PriceException;
 
 public class GameTest {
 	
-	Person person01 = new Person("Tomek Ogon");
+	Person person01 = new Person("Tomasz Ogon");
 
 	@BeforeClass
 	public static void setUpBeforeClass() throws Exception {
@@ -27,7 +26,7 @@ public class GameTest {
 
 	@Before
 	public void setUp() throws Exception {
-		person01.addGame("Battlefeld 3", GameType.Shooter, 2011, 120);
+		person01.addGame("LBP", GameType.Action, 2006, 40);
 	}
 
 	@After
@@ -46,13 +45,13 @@ public class GameTest {
 */
 	@Test
 	public void testGetName() throws PriceException {
-		assertTrue(person01.getListOfGame().get(0).getName().equals("Battlefield 3"));
+		assertTrue(person01.getListOfGame().get(0).getName().equals("LBP"));
 	}
 
 	@Test
 	public void testSetName() throws PriceException {
-		person01.getListOfGame().get(0).setName("Shogun 2");
-		assertTrue(person01.getListOfGame().get(0).getName().equals("Shogun 2"));
+		person01.getListOfGame().get(0).setName("LBP 2");
+		assertTrue(person01.getListOfGame().get(0).getName().equals("LBP 2"));
 	}
 
 	@Test
@@ -68,7 +67,7 @@ public class GameTest {
 
 	@Test
 	public void testGetReleaseYear() throws PriceException {
-		assertTrue(person01.getListOfGame().get(0).getReleaseYear()==2008);
+		assertTrue(person01.getListOfGame().get(0).getReleaseYear()==2006);
 	}
 
 	@Test

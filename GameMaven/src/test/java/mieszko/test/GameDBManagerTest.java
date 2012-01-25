@@ -2,15 +2,14 @@ package mieszko.test;
 
 import static org.junit.Assert.*;
 
-import mieszko.project.*;
-import mieszko.services.*;
-
 import org.junit.After;
 import org.junit.AfterClass;
 import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.Test;
 
+import mieszko.services.*;
+import mieszko.project.*;
 
 public class GameDBManagerTest {
 
@@ -26,7 +25,7 @@ public class GameDBManagerTest {
 
 	@Before
 	public void setUp() throws Exception {
-		dbGame.addGame(new Game("Battlefield 3", GameType.Shooter, 2011, 120));
+		dbGame.addGame(new Game("LBP", GameType.Action, 2006, 40));
 	}
 
 	@After
@@ -36,20 +35,20 @@ public class GameDBManagerTest {
 
 	@Test
 	public void testAddGame() {
-		dbGame.addGame(new Game("Battlefield 1942", GameType.Shooter, 2002, 40));
-		dbGame.addGame(new Game("Battlefield Vietnam", GameType.Shooter, 2004, 40));
+		dbGame.addGame(new Game("LBP2", GameType.Action, 2008, 40));
+		dbGame.addGame(new Game("LBP3", GameType.Action, 2008, 40));
 		assertEquals(3, dbGame.getAllGames().size());
 	}
 
 	@Test
 	public void testGetAllGames() {
-		dbGame.addGame(new Game("Shogun 2", GameType.Action, 2008, 40));
+		dbGame.addGame(new Game("LBP2", GameType.Action, 2008, 40));
 		assertEquals(2, dbGame.getAllGames().size());
 	}
 
 	@Test
 	public void testDeleteAllGame() {
-		dbGame.addGame(new Game("Shogun 2", GameType.Action, 2008, 40));
+		dbGame.addGame(new Game("LBP2", GameType.Action, 2008, 40));
 		dbGame.deleteAllGame();
 		assertEquals(0, dbGame.getAllGames().size());
 		assertTrue(dbGame.getAllGames().size() == 0);
@@ -57,23 +56,23 @@ public class GameDBManagerTest {
 
 	@Test
 	public void testFindGameByName() {
-		dbGame.addGame(new Game("Shogun 2", GameType.Action, 2008, 40));
-		dbGame.addGame(new Game("Call of Duty 3", GameType.Action, 2008, 40));
-		assertTrue(dbGame.findGameByName("Shogun").size() == 1);
+		dbGame.addGame(new Game("LBP2", GameType.Action, 2008, 40));
+		dbGame.addGame(new Game("LBP3", GameType.Action, 2008, 40));
+		assertTrue(dbGame.findGameByName("LBP").size() == 1);
 	}
 
 	@Test
 	public void testFindGameByType() {
-		dbGame.addGame(new Game("Shogun 2", GameType.Action, 2008, 40));
-		dbGame.addGame(new Game("Call of Duty 3", GameType.Racing, 2008, 40));
+		dbGame.addGame(new Game("LBP2", GameType.Action, 2008, 40));
+		dbGame.addGame(new Game("LBP3", GameType.Racing, 2008, 40));
 		assertEquals(2, dbGame.findGameByType(GameType.Action).size());
 	}
 
 	@Test
 	public void testDeleteGame() {
-		dbGame.addGame(new Game("Shogun 2", GameType.Action, 2008, 40));
-		dbGame.addGame(new Game("Call of Duty 3", GameType.Racing, 2008, 40));
-		dbGame.deleteGame(dbGame.findGameByName("Call of Duty 3"));
+		dbGame.addGame(new Game("LBP2", GameType.Action, 2008, 40));
+		dbGame.addGame(new Game("LBP3", GameType.Racing, 2008, 40));
+		dbGame.deleteGame(dbGame.findGameByName("LBP3"));
 		assertEquals(2, dbGame.getAllGames().size());	
 	}
 
